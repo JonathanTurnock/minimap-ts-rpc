@@ -21,8 +21,7 @@ type safety across the client and server.
 
 ### Prerequisites
 
-This example uses Deno as an example, but the RPC example can be used with any
-JavaScript/TypeScript runtime and web framework.
+This example uses Deno as an example, but the RPC example can be used with any runtime and web framework.
 
 ### Defining Remote Procedures
 
