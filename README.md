@@ -1,7 +1,7 @@
 # Lightweight Typescript RPC Example
 
 This project provides an example of how to do RPC without depending on full
-frameworks like TRPC, but keeping offering full type safety and minimal
+frameworks like TRPC, but keeping full type safety and minimal
 overhead.
 
 It allows you to define remote procedure calls (RPC) with TypeScript, ensuring
