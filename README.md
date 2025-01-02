@@ -1,4 +1,4 @@
-# Lightweight RPC Framework with Full Type Safety
+# Lightweight Typescript RPC Example
 
 This project provides an example of how to do RPC without depending on full
 frameworks like TRPC, but keeping offering full type safety and minimal
