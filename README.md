@@ -166,8 +166,6 @@ curl --location 'http://127.0.0.1:8000/rpc' \
 
 ## Extending the Client and Router for other Transports
 
-The example uses HTTP as the transport layer, but you can extend the client and router to use other transports as necessary:
-
 To create new transports, you need to extend the `RpcClient` and `RpcRouter` classes to handle the desired transport mechanism. For example, if you want to use WebSockets instead of HTTP, you would create `WebSocketRpcClient` and `WebSocketRpcRouter` classes. These classes should implement the `handle` method to send and receive RPC requests and responses using WebSockets. By following this approach, you can easily adapt the framework to use different transport layers while maintaining full type safety and minimal overhead. This extensibility allows the framework to be used in various environments and applications, such as local networks or inter-process communication (IPC).
 
 ### Router Example
