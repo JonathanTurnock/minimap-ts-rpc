@@ -7,6 +7,8 @@ overhead.
 It allows you to define remote procedure calls (RPC) with TypeScript, ensuring
 type safety across the client and server.
 
+![img.png](img.png)
+
 ## Features
 
 - **Full Type Safety**: Ensures that the types of your RPC methods are
