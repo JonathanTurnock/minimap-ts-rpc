@@ -1,5 +1,5 @@
 import { HttpRpcClient } from "../lib/http-client.ts";
-import { RpcAPI } from "../server/main.ts";
+import type { RpcAPI } from "../server/main.ts"; // Important to only use `import type` here to avoid pulling in the actual implementation and possible server-side code
 
 /**
  * Instance of RpcClient configured with the RpcAPI type.
