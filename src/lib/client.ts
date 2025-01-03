@@ -2,17 +2,18 @@ import { AsPromises, RemoteProcedureProviders } from "./types.ts";
 
 /**
  * Abstract class representing an RPC (Remote Procedure Call) client.
+ * This class provides a mechanism to retrieve proxy objects for remote procedure providers
+ * and defines an abstract method to handle RPC requests.
  *
- * This class provides a way to call remote procedures as if they were local functions.
- *
- * The client must be provided with a list of providers, each provider is an object that contains a list of procedures.
+ * @template PROVIDERS - The type of the remote procedure providers.
  */
 export abstract class RpcClient<PROVIDERS extends RemoteProcedureProviders> {
   /**
    * Retrieves a proxy object for the specified provider.
-   * The proxy object allows calling remote procedures as if they were local functions handling the serialization and deserialization of the arguments and results.
+   * The proxy object allows calling remote procedures as if they were local functions.
    *
-   * @param {string} provider - The name of the provider to retrieve as provided in the RpcRouter constructor.
+   * @param {NAMESPACE} provider - The name of the provider.
+   * @returns {AsPromises<PROVIDERS[NAMESPACE]>} A proxy object for the specified provider.
    */
   get<NAMESPACE extends keyof PROVIDERS>(
     provider: NAMESPACE,
@@ -20,9 +21,9 @@ export abstract class RpcClient<PROVIDERS extends RemoteProcedureProviders> {
     return new Proxy(
       {},
       {
-        get: (_target, method) => {
+        get: (_target, procedure) => {
           return (...args: any[]) => {
-            return this.handle(provider as string, method as string, args);
+            return this.handle(provider as string, procedure as string, args);
           };
         },
       },
@@ -31,13 +32,16 @@ export abstract class RpcClient<PROVIDERS extends RemoteProcedureProviders> {
 
   /**
    * Abstract method to handle an RPC request.
-   *
    * This method must be implemented by subclasses to define how the request is sent to the server.
    *
-   * @param {string} provider - The name of the provider as provided in the RpcRouter constructor.
-   * @param {string} procedure - The name of the procedure to call on the provider.
-   * @param {any[]} args - The arguments to pass to the procedure, these must be serializable.
-   * @returns {Promise<any>} A promise that resolves with the result of the remote procedure call as plain js objects.
+   * @param {string} provider - The name of the provider.
+   * @param {string} procedure - The name of the procedure to invoke.
+   * @param {any[]} args - The arguments to pass to the procedure.
+   * @returns {Promise<any>} A promise that resolves to the response from the server.
    */
-  abstract handle(provider: string, procedure: string, args: any[]): Promise<any>;
+  abstract handle(
+    provider: string,
+    procedure: string,
+    args: any[],
+  ): Promise<any>;
 }

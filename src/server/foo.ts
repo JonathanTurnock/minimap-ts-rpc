@@ -24,6 +24,6 @@ function setFoo(_foo: string): string {
 }
 
 /**
- * An object that provides methods to get and set the value of foo.
+ * An object that provides procedures to get and set the value of foo.
  */
 export const fooProvider = { getFoo, setFoo };

@@ -9,24 +9,24 @@ export const client = new HttpRpcClient<RpcAPI>("http://127.0.0.1:8000/rpc");
 
 /**
  * Proxy object for the foo provider on the RPC server.
- * Provides type-safe access to the methods of the foo provider.
+ * Provides type-safe access to the procedures of the foo provider.
  */
 const foo = client.get("foo");
 
 /**
- * Call the getFoo method on the foo provider and log the result.
- * This method has the exact same signature as the getFoo method on the server and all the same Intellisense support.
+ * Call the getFoo procedure on the foo provider and log the result.
+ * This has the exact same signature as the getFoo procedure on the server and all the same Intellisense support.
  */
-console.log("Calling getFoo method on foo provider...");
+console.log("Calling getFoo procedure on foo provider...");
 foo.getFoo().then((result) => {
   console.log(`Result of getFoo: ${result}`);
 });
 
 /**
- * Call the setFoo method on the foo provider and log the result.
- * This method has the exact same signature as the setFoo method on the server and all the same Intellisense support.
+ * Call the setFoo procedure on the foo provider and log the result.
+ * This has the exact same signature as the setFoo procedure on the server and all the same Intellisense support.
  */
-console.log("Calling setFoo method on foo provider...");
+console.log("Calling setFoo procedure on foo provider...");
 foo.setFoo("bar").then((result) => {
   console.log(`Result of setFoo: ${result}`);
 });
