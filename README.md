@@ -160,21 +160,6 @@ Start the example Deno server by running the following command:
 deno run --allow-net src/server/main.ts
 ```
 
-### Making RPC Calls
-
-You can make RPC calls using the client as shown in `src/client/main.ts`. For
-example, to get and set the value of `foo`:
-
-```ts
-foo.getFoo().then((result) => {
-  console.log(result);
-});
-
-foo.setFoo("bar").then((result) => {
-  console.log(result);
-});
-```
-
 Test the client by running the following command:
 
 ```shell
@@ -200,6 +185,21 @@ curl --location 'http://127.0.0.1:8000/rpc' \
     "method": "getFoo",
     "args": []
 }'
+```
+
+### Making RPC Calls
+
+You can make RPC calls using the client as shown in `src/client/main.ts`. For
+example, to get and set the value of `foo`:
+
+```ts
+foo.getFoo().then((result) => {
+  console.log(result);
+});
+
+foo.setFoo("bar").then((result) => {
+  console.log(result);
+});
 ```
 
 ## Extending the Client and Router for other Transports
