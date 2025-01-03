@@ -1,4 +1,4 @@
-import {HttpRpcRouter} from "../lib/http-router.ts";
+import { HttpRpcRouter } from "../lib/http-router.ts";
 import { fooProvider } from "./foo.ts";
 
 /**

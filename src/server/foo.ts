@@ -8,6 +8,7 @@ let foo = "Foo";
  * @returns {string} The current value of foo.
  */
 function getFoo(): string {
+  console.log("Invoked Get Foo");
   return foo;
 }
 
